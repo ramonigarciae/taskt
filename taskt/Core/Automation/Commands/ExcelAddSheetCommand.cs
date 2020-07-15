@@ -1,7 +1,5 @@
-﻿using ClosedXML.Excel;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using taskt.UI.CustomControls;
@@ -11,10 +9,10 @@ namespace taskt.Core.Automation.Commands
 {
     [Serializable]
     [Attributes.ClassAttributes.Group("Excel Commands")]
-    [Attributes.ClassAttributes.Description("This command opens an Excel Workbook.")]
-    [Attributes.ClassAttributes.UsesDescription("Use this command when you want to open an existing Excel Workbook.")]
+    [Attributes.ClassAttributes.Description("This command allows you to activate a specific worksheet in a workbook")]
+    [Attributes.ClassAttributes.UsesDescription("Use this command when you want to switch to a specific worksheet")]
     [Attributes.ClassAttributes.ImplementationDescription("This command implements Excel Interop to achieve automation.")]
-    public class ExcelOpenWorkbookCommand : ScriptCommand
+    public class ExcelAddSheetCommand : ScriptCommand
     {
         [XmlAttribute]
         [Attributes.PropertyAttributes.PropertyDescription("Please Enter the instance name")]
@@ -23,18 +21,17 @@ namespace taskt.Core.Automation.Commands
         [Attributes.PropertyAttributes.Remarks("Failure to enter the correct instance name or failure to first call **Create Excel** command will cause an error")]
         [Attributes.PropertyAttributes.PropertyUIHelper(Attributes.PropertyAttributes.PropertyUIHelper.UIAdditionalHelperType.ShowVariableHelper)]
         public string v_InstanceName { get; set; }
-
         [XmlAttribute]
-        [Attributes.PropertyAttributes.PropertyDescription("Please indicate the workbook file path")]
-        [Attributes.PropertyAttributes.PropertyUIHelper(Attributes.PropertyAttributes.PropertyUIHelper.UIAdditionalHelperType.ShowFileSelectionHelper)]
-        [Attributes.PropertyAttributes.InputSpecification("Enter or Select the path to the applicable file that should be opened by Excel.")]
-        [Attributes.PropertyAttributes.SampleUsage(@"C:\temp\myfile.xlsx or [vFilePath]")]
+        [Attributes.PropertyAttributes.PropertyDescription("Indicate the name of the sheet within the Workbook to activate")]
+        [Attributes.PropertyAttributes.InputSpecification("Specify the name of the actual sheet")]
+        [Attributes.PropertyAttributes.SampleUsage("Sheet1, mySheetName, [vSheet]")]
         [Attributes.PropertyAttributes.Remarks("")]
-        public string v_FilePath { get; set; }
-        public ExcelOpenWorkbookCommand()
+        [Attributes.PropertyAttributes.PropertyUIHelper(Attributes.PropertyAttributes.PropertyUIHelper.UIAdditionalHelperType.ShowVariableHelper)]
+        public string v_SheetName { get; set; }
+        public ExcelAddSheetCommand()
         {
-            this.CommandName = "ExcelOpenWorkbookCommand";
-            this.SelectionName = "Open Workbook";
+            this.CommandName = "ExcelAddSheetCommand";
+            this.SelectionName = "Add Sheet";
             this.CommandEnabled = true;
             this.CustomRendering = true;
         }
@@ -42,21 +39,17 @@ namespace taskt.Core.Automation.Commands
         {
             var engine = (Core.Automation.Engine.AutomationEngineInstance)sender;
             var vInstance = v_InstanceName.ConvertToUserVariable(engine);
-            var vFilePath = v_FilePath.ConvertToUserVariable(sender);
 
-           var excelObject = engine.GetAppInstance(vInstance);
+            var excelObject = engine.GetAppInstance(vInstance);
+
             Microsoft.Office.Interop.Excel.Application excelInstance = (Microsoft.Office.Interop.Excel.Application)excelObject;
-            if (File.Exists(vFilePath))
-            {
-                excelInstance.Workbooks.Open(vFilePath);
-            }
-            else
-            {
-                excelInstance.Workbooks.Add();
-            }
-            XLWorkbook wb = new XLWorkbook();
+                string sheetToDelete = v_SheetName.ConvertToUserVariable(sender);
+            var workSheet = excelInstance.Sheets.Add();
+                workSheet.Select();
 
-      
+
+
+            
         }
         public override List<Control> Render(frmCommandEditor editor)
         {
@@ -64,14 +57,16 @@ namespace taskt.Core.Automation.Commands
 
             //create standard group controls
             RenderedControls.AddRange(CommandControls.CreateDefaultInputGroupFor("v_InstanceName", this, editor));
-            RenderedControls.AddRange(CommandControls.CreateDefaultInputGroupFor("v_FilePath", this, editor));
+            RenderedControls.AddRange(CommandControls.CreateDefaultInputGroupFor("v_SheetName", this, editor));
+
 
             return RenderedControls;
 
         }
+
         public override string GetDisplayValue()
         {
-            return base.GetDisplayValue() + " [Open from '" + v_FilePath + "', Instance Name: '" + v_InstanceName + "']";
+            return base.GetDisplayValue() + " [Sheet Name: " + v_SheetName + ", Instance Name: '" + v_InstanceName + "']";
         }
     }
 }

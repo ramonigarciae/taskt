@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using taskt.Core.IO;
@@ -59,20 +60,26 @@ namespace taskt.Core
             ApplicationSettings appSettings;
             if (System.IO.File.Exists(filePath))
             {
-                //open file and return it or return new settings on error
-                var fileStream = System.IO.File.Open(filePath, FileMode.Open);
+                bool continueTask = false;
+                //do {
 
-                try
-                {
-                    XmlSerializer serializer = new XmlSerializer(typeof(ApplicationSettings));
-                    appSettings = (ApplicationSettings)serializer.Deserialize(fileStream);
-                }
-                catch (Exception)
-                {
-                    appSettings = new ApplicationSettings();
-                }
+                    try
+                    {
+                            //open file and return it or return new settings on error
+                            var fileStream = System.IO.File.Open(filePath, FileMode.Open);
+                            XmlSerializer serializer = new XmlSerializer(typeof(ApplicationSettings));
+                            appSettings = (ApplicationSettings)serializer.Deserialize(fileStream);
+                            fileStream.Close();
+                            continueTask = true;
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("File is used by other");
+                        appSettings = new ApplicationSettings();
+                        Thread.Sleep(100);
+                    }
+                //} while (!continueTask);
 
-                fileStream.Close();
             }
             else
             {

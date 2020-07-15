@@ -519,5 +519,9 @@ namespace taskt.UI.Forms
             //frmWhitelist.ShowDialog();
         }
 
+        private void txtGUID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

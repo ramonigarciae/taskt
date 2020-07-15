@@ -73,6 +73,7 @@
             this.lblRootFolder = new System.Windows.Forms.Label();
             this.txtAppFolderPath = new System.Windows.Forms.TextBox();
             this.tabDebugSettings = new System.Windows.Forms.TabPage();
+            this.chkAutoCalcVariables = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.cboCancellationKey = new System.Windows.Forms.ComboBox();
             this.chkOverrideInstances = new System.Windows.Forms.CheckBox();
@@ -120,7 +121,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tmrGetSocketStatus = new System.Windows.Forms.Timer(this.components);
             this.bgwMetrics = new System.ComponentModel.BackgroundWorker();
-            this.chkAutoCalcVariables = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.uiBtnOpen)).BeginInit();
             this.uiSettingTabs.SuspendLayout();
             this.tabAppSettings.SuspendLayout();
@@ -681,6 +681,19 @@
             this.tabDebugSettings.TabIndex = 1;
             this.tabDebugSettings.Text = "Automation Engine";
             // 
+            // chkAutoCalcVariables
+            // 
+            this.chkAutoCalcVariables.AutoSize = true;
+            this.chkAutoCalcVariables.BackColor = System.Drawing.Color.Transparent;
+            this.chkAutoCalcVariables.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAutoCalcVariables.ForeColor = System.Drawing.Color.SteelBlue;
+            this.chkAutoCalcVariables.Location = new System.Drawing.Point(10, 178);
+            this.chkAutoCalcVariables.Name = "chkAutoCalcVariables";
+            this.chkAutoCalcVariables.Size = new System.Drawing.Size(255, 25);
+            this.chkAutoCalcVariables.TabIndex = 38;
+            this.chkAutoCalcVariables.Text = "Calculate Variables Automatically";
+            this.chkAutoCalcVariables.UseVisualStyleBackColor = false;
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -932,6 +945,7 @@
             this.txtGUID.Name = "txtGUID";
             this.txtGUID.Size = new System.Drawing.Size(371, 29);
             this.txtGUID.TabIndex = 27;
+            this.txtGUID.TextChanged += new System.EventHandler(this.txtGUID_TextChanged);
             // 
             // label11
             // 
@@ -1239,19 +1253,6 @@
             // 
             this.bgwMetrics.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwMetrics_DoWork);
             this.bgwMetrics.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwMetrics_RunWorkerCompleted);
-            // 
-            // chkAutoCalcVariables
-            // 
-            this.chkAutoCalcVariables.AutoSize = true;
-            this.chkAutoCalcVariables.BackColor = System.Drawing.Color.Transparent;
-            this.chkAutoCalcVariables.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkAutoCalcVariables.ForeColor = System.Drawing.Color.SteelBlue;
-            this.chkAutoCalcVariables.Location = new System.Drawing.Point(10, 178);
-            this.chkAutoCalcVariables.Name = "chkAutoCalcVariables";
-            this.chkAutoCalcVariables.Size = new System.Drawing.Size(255, 25);
-            this.chkAutoCalcVariables.TabIndex = 38;
-            this.chkAutoCalcVariables.Text = "Calculate Variables Automatically";
-            this.chkAutoCalcVariables.UseVisualStyleBackColor = false;
             // 
             // frmSettings
             // 

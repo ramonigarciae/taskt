@@ -43,7 +43,7 @@ namespace taskt
             {
                 string filePath = args[0];
 
-
+                Console.WriteLine(filePath);
                 if (!System.IO.File.Exists(filePath))
                 {
                     using (System.Diagnostics.EventLog eventLog = new System.Diagnostics.EventLog("Application"))

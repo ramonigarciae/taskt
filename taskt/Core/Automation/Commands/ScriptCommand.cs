@@ -171,6 +171,8 @@ namespace taskt.Core.Automation.Commands
     [XmlInclude(typeof(ShowEngineContextCommand))]
     [XmlInclude(typeof(DatabaseDefineConnectionCommand))]
     [XmlInclude(typeof(DatabaseExecuteQueryCommand))]
+    [XmlInclude(typeof(DatabaseExecuteMySqlQueryCommand))]
+    [XmlInclude(typeof(DatabaseExecuteInformixQueryCommand))]
     [XmlInclude(typeof(ParseDatasetRowCommand))]
     [XmlInclude(typeof(TryCommand))]
     [XmlInclude(typeof(CatchExceptionCommand))]

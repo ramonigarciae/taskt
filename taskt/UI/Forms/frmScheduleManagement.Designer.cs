@@ -69,7 +69,7 @@
             // txtAppPath
             // 
             this.txtAppPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAppPath.Location = new System.Drawing.Point(9, 240);
+            this.txtAppPath.Location = new System.Drawing.Point(9, 334);
             this.txtAppPath.Name = "txtAppPath";
             this.txtAppPath.Size = new System.Drawing.Size(513, 24);
             this.txtAppPath.TabIndex = 0;
@@ -79,7 +79,7 @@
             this.cboSelectedScript.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSelectedScript.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSelectedScript.FormattingEnabled = true;
-            this.cboSelectedScript.Location = new System.Drawing.Point(10, 286);
+            this.cboSelectedScript.Location = new System.Drawing.Point(10, 380);
             this.cboSelectedScript.Name = "cboSelectedScript";
             this.cboSelectedScript.Size = new System.Drawing.Size(334, 26);
             this.cboSelectedScript.TabIndex = 2;
@@ -114,7 +114,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label3.Location = new System.Drawing.Point(7, 221);
+            this.label3.Location = new System.Drawing.Point(7, 315);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(233, 17);
             this.label3.TabIndex = 8;
@@ -126,7 +126,7 @@
             this.lblScriptName.BackColor = System.Drawing.Color.Transparent;
             this.lblScriptName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScriptName.ForeColor = System.Drawing.Color.White;
-            this.lblScriptName.Location = new System.Drawing.Point(6, 267);
+            this.lblScriptName.Location = new System.Drawing.Point(6, 361);
             this.lblScriptName.Name = "lblScriptName";
             this.lblScriptName.Size = new System.Drawing.Size(80, 17);
             this.lblScriptName.TabIndex = 9;
@@ -172,7 +172,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvScheduledTasks.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvScheduledTasks.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvScheduledTasks.Size = new System.Drawing.Size(612, 124);
+            this.dgvScheduledTasks.Size = new System.Drawing.Size(1008, 206);
             this.dgvScheduledTasks.TabIndex = 11;
             this.dgvScheduledTasks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvScheduledTasks_CellContentClick);
             // 
@@ -243,6 +243,7 @@
             this.uiBtnShowScheduleManager.Size = new System.Drawing.Size(152, 52);
             this.uiBtnShowScheduleManager.TabIndex = 14;
             this.uiBtnShowScheduleManager.TabStop = false;
+            this.uiBtnShowScheduleManager.Text = "Launch Task Scheduler";
             this.uiBtnShowScheduleManager.Click += new System.EventHandler(this.uiBtnShowScheduleManager_Click);
             // 
             // uiBtnOk
@@ -254,11 +255,12 @@
             this.uiBtnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
             this.uiBtnOk.Image = global::taskt.Properties.Resources.logo;
             this.uiBtnOk.IsMouseOver = false;
-            this.uiBtnOk.Location = new System.Drawing.Point(7, 423);
+            this.uiBtnOk.Location = new System.Drawing.Point(7, 517);
             this.uiBtnOk.Name = "uiBtnOk";
             this.uiBtnOk.Size = new System.Drawing.Size(55, 48);
             this.uiBtnOk.TabIndex = 1;
             this.uiBtnOk.TabStop = false;
+            this.uiBtnOk.Text = "Add";
             this.uiBtnOk.Click += new System.EventHandler(this.uiBtnOk_Click);
             // 
             // panel1
@@ -272,7 +274,7 @@
             this.panel1.Controls.Add(this.rdoEndByDate);
             this.panel1.Controls.Add(this.dtEndTime);
             this.panel1.Controls.Add(this.dtStartTime);
-            this.panel1.Location = new System.Drawing.Point(8, 318);
+            this.panel1.Location = new System.Drawing.Point(8, 412);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(513, 106);
             this.panel1.TabIndex = 15;
@@ -374,7 +376,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.AliceBlue;
-            this.label2.Location = new System.Drawing.Point(6, 200);
+            this.label2.Location = new System.Drawing.Point(6, 294);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(141, 21);
             this.label2.TabIndex = 16;
@@ -385,7 +387,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundChangeIndex = 268;
-            this.ClientSize = new System.Drawing.Size(628, 474);
+            this.ClientSize = new System.Drawing.Size(1029, 576);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.uiBtnShowScheduleManager);

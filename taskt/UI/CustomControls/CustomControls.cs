@@ -583,6 +583,8 @@ namespace taskt.UI
             uiImages.Add("SetEnginePreferenceCommand", taskt.Properties.Resources.command_window);
             uiImages.Add("DatabaseDefineConnectionCommand", taskt.Properties.Resources.command_database);
             uiImages.Add("DatabaseExecuteQueryCommand", taskt.Properties.Resources.command_database);
+            uiImages.Add("DatabaseExecuteMySqlQueryCommand", taskt.Properties.Resources.command_database);
+            uiImages.Add("DatabaseExecuteInformixQueryCommand", taskt.Properties.Resources.command_database);
             uiImages.Add("RemoteTaskCommand", taskt.Properties.Resources.command_remote);
             uiImages.Add("RemoteAPICommand", taskt.Properties.Resources.command_remote);
             uiImages.Add("AddDictionaryCommand", taskt.Properties.Resources.command_dictionary);

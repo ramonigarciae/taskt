@@ -82,10 +82,10 @@ namespace taskt.Core.Automation.Commands
             Microsoft.Office.Interop.Outlook.MailItem mail = (Microsoft.Office.Interop.Outlook.MailItem)outlookApp.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
             Microsoft.Office.Interop.Outlook.AddressEntry currentUser =
                 outlookApp.Session.CurrentUser.AddressEntry;
-            if (currentUser.Type == "EX")
+            if (currentUser.Type == "SMTP")
             {
-                Microsoft.Office.Interop.Outlook.ExchangeUser manager =
-                    currentUser.GetExchangeUser().GetExchangeUserManager();
+               // Microsoft.Office.Interop.Outlook.ExchangeUser manager =
+               //     currentUser.GetExchangeUser().GetExchangeUserManager();
                 // Add recipient using display name, alias, or smtp address
                 foreach(var t in splittext)
                     mail.Recipients.Add(t.ToString());
